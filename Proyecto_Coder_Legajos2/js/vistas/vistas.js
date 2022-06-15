@@ -39,27 +39,40 @@ function crearMenu()
       else if(opcion === "Eliminar Alumno")
      {
          boton.addEventListener("click", ()=>{
+          
              eliminarUsuario();
              listarUsuarios(usuarios);
-         })
+         
+        })
      }
 
      else if(opcion === "Editar Alumno")
      {
          boton.addEventListener("click", ()=>{
+
+            
              modificarUsuario();
              listarUsuarios(usuarios);
-         })
+         
+             })
      }
 
      else if(opcion==="Buscar Alumno")
      {
         boton.addEventListener("click", ()=>{
-            let filtrados = buscarUsuario();
+
+         
+            let filtrados = buscarUsuario(); 
+     
            
             listarUsuarios(filtrados);
 
+
+
         })
+
+
+
      }
     
      document.body.appendChild(boton);
@@ -168,6 +181,14 @@ function agregarUsuario()
     usuarios.push(usuario);
     console.log("ALMACENADO");
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+    Swal.fire(  {
+            title:'Nuevo Alumno Agregado',
+            icon: 'success',
+            confirmButtonText: 'OK',
+           
+        }
+       )
 }
 
 
@@ -193,10 +214,17 @@ function eliminarUsuario(){
 
   if(!encontrado)
   {
-      alert("Alumno no Encontrado");
+      Swal.fire(  {
+            title:'Alumno no encontrado',
+            icon: 'success',
+            confirmButtonText: 'OK',
+           
+        }
+       )
+
   }
   else{
-
+   
        let index = usuarios.indexOf(encontrado);
 
        usuarios.splice(index,1);
@@ -204,7 +232,15 @@ function eliminarUsuario(){
        console.log("Borrar usuario");
        console.log(usuarios);
 
-  }   }
+       Swal.fire(  {
+            title:'Datos de Alumno Eliminados',
+            icon: 'success',
+            confirmButtonText: 'OK',
+           
+        }
+       )
+
+  }   } 
 
 function modificarUsuario()
 {
@@ -214,6 +250,7 @@ function modificarUsuario()
 
    if(existe)
    {
+     
        let encontrado = usuarios.find((usuario)=>usuario.id===id);
        let nuevoCurso=prompt("ingrese un curso");
     let nuevoNombre = prompt("ingrese un nombre");
@@ -231,11 +268,22 @@ function modificarUsuario()
        encontrado.tel=nuevoTel;
 
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
-      
-      
+     
+      Swal.fire(  {
+            title:'Datos de Alumno Modificados',
+            icon: 'success',
+            confirmButtonText: 'OK',
+           
+        }
+       )
    }
    else
-   {
-       alert("Usuario no econtrado")
+   {Swal.fire(  {
+            title:'Alumno no encontrado',
+            icon: 'success',
+            confirmButtonText: 'OK',
+           
+        }
+       )
    }
     }

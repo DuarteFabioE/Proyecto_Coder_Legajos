@@ -1,0 +1,57 @@
+
+
+
+body{
+
+    margin: auto;
+    background-color:#C6D2CF;
+    margin:4%;
+    padding:2%;
+}
+
+h1{
+    color:black;
+    text-align: center;
+}
+h3 {
+    border-bottom:1px solid aquamarine;
+    padding:1%;
+}
+
+button{
+
+    margin: auto;
+    background-color: #0E7964;
+    width:200px;
+    height: 50px;
+    color:white;
+    font-weight: bold;
+    margin-left: 2%;
+    border-radius: 20px;
+    border:0;
+    cursor: pointer;
+}
+button:hover, button.active{
+    color:#0E7964;
+    background-color: white;
+    border:1px solid #0E7964;
+}
+
+table{
+
+    margin: auto;
+    border:1px solid #0E7964;
+  
+}
+tr:nth-child(even){
+    background-color: #0E7964;
+    color:white;
+}
+
+th{
+   
+}
+
+td{
+  
+}
